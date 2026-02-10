@@ -1,0 +1,42 @@
+<div class="row text-center">
+  <div class="col-12 m-3"></div>
+  <b>Example of ngSwitch and switch</b>
+</div>
+
+<div class="row text-center">
+  <div class="col-12 mt-2">
+    <button (click)="setGrade(1)" class="btn btn-success m-1">Grade 1</button>
+    <button (click)="setGrade(2)" class="btn btn-info m-1">Grade 2</button>
+    <button (click)="setGrade(3)" class="btn btn-warning m-1">Grade 3</button>
+  </div>
+
+  <div class="col-12 mt-4">
+    <div [ngSwitch]="grade" style="border: 1px solid pink">
+      <p *ngSwitchCase="1">The 1st Grade</p>
+      <p *ngSwitchCase="2">The 2nd Grade</p>
+      <p *ngSwitchCase="3">The 3rd Grade</p>
+      <p *ngSwitchDefault>Invalid Grade</p>
+    </div>
+  </div>
+
+  <div class="col-12 mt-4">
+    @switch(grade) {
+    @case (1) {
+    <p>The 1st Grade</p>
+    <p>Congurlation</p>
+    }
+    @case (2) {
+    <p>The 2nd Grade</p>
+    <p>Good Job</p>
+    }
+    @case (3) {
+    <p>The 3rd Grade</p>
+    <p>Keep it up</p>
+    }
+    @default {
+    <p>Invalid Grade</p>
+    }
+    }
+  </div>
+
+</div>

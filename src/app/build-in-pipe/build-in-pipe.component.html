@@ -1,0 +1,124 @@
+<div class="col-12 m-3">
+  <h3 class="text-primary m-3">
+    Build-in Pipe
+  </h3>
+  <h6>
+    orignal string: {{ testStr }}
+  </h6>
+  <h6>
+    uppercase pipe: {{ testStr | uppercase}}
+  </h6>
+  <h6>
+    lowercase pipe: {{ testStr | lowercase}}
+  </h6>
+  <h6>
+    titlecase pipe: {{ testStr | titlecase}}
+  </h6>
+  <hr />
+  <h6>
+    orignal string: {{ arrStr }}
+  </h6>
+  <h6>
+    <!-- 下标从0到5，但是不包含5  01234-->
+    slice pipe: {{ arrStr | slice:0:5}}
+  </h6>
+  <h6>
+    <!-- 从下标1开始，到结束，但是不包含最后2个字符 1234567 -->
+    slice pipe: {{ arrStr | slice:1:-2}}
+  </h6>
+  <h6>
+    <!-- 从下标7开始，到结束 789-->
+    slice pipe: {{ arrStr | slice:7}}
+  </h6>
+  <h6>
+    <!-- 从最后2个字符开始，到结束 89 -->
+    slice pipe: {{ arrStr | slice:-2}}
+  </h6>
+  <hr />
+
+  <pre>Original Json : {{jsonObj | json}}</pre>
+
+  <h6>
+    json pipe: {{ jsonObj | json }}
+  </h6>
+  <hr />
+  <h6>
+    orignal date: {{today}}
+  </h6>
+  <h6>
+    date pipe: {{ today | date }}
+  </h6>
+  <h6>
+    short date pipe: {{ today | date: 'short' }}
+  </h6>
+  <h6>
+    short date pipe: {{ today | date: 'shortTime' }}
+  </h6>
+  <h6>
+    short date pipe: {{ today | date: 'medium' }}
+  </h6>
+  <h6>
+    short date pipe: {{ today | date: 'mediumDate' }}
+  </h6>
+  <h6>
+    short date pipe: {{ today | date: 'yyyy-MM-dd' }}
+  </h6>
+  <hr />
+  <h6>
+    <!-- 保留7位整数，2位小数，最少2位小数，最多2位小数 -->
+    decimal number pipe: {{ 12345.678 | number: '7.2'}}
+  </h6>
+  <h6>
+    <!-- 保留7位整数，7位小数，最少7位小数，最多7位小数 -->
+    decimal number pipe: {{ 12345.678 | number: '7.7'}}
+  </h6>
+  <h6>
+    <!-- 保留1位整数，2位小数，最少2位小数，最多2位小数 -->
+    decimal number pipe: {{ 12345.678 | number: '1.2-2'}}
+  </h6>
+  <hr />
+  <h6>
+    percent pipe: {{ 0.2567 | percent: '1.2-2'}}
+  </h6>
+  <h6>
+    currency pipe: {{ 12345.678 | currency: 'USD' }}
+  </h6>
+  <hr />
+
+  组合管道
+  <h6>
+    {{ 12.678 | number: '2.2' | currency: 'USD'}}
+  </h6>
+
+  <h6>
+    @for (item of observeableStrArr | async ; track $index) {
+    {{ item }}
+    }
+  </h6>
+
+  <h6>
+    mobile pipe: {{ '13800138000' | mobilePipe }}
+  </h6>
+  <h6>
+    mobile pipe: {{ '' | mobilePipe }}
+  </h6>
+
+  <h6>
+    custom date pipe: {{ today | customDatePipe }}
+  </h6>
+
+  <hr />
+
+  <h6>Pure pipe and impure pipe</h6>
+
+  <h6>
+    purePipe : {{ 5 | purePipe }}
+  </h6>
+
+  <h6>
+    impurePipe : {{ 5 | impurePipe }}
+  </h6>
+
+  <button (click)="test()">Press to trigger change cycle</button>
+
+</div>

@@ -1,0 +1,94 @@
+<div class="row text-center">
+  <div class="col-12 m-3"></div>
+  <b>Example of ngFor and for</b>
+</div>
+
+<div class="row text-center">
+  <div class="col-4 mt-2">
+    <p>Example 1</p>
+    <select>
+      <option *ngFor="let emp of employees" [value]="emp.id">
+        {{ emp.name}} -- {{ emp.position }}
+      </option>
+    </select>
+  </div>
+  <div class="col-6 mt-2">
+    <p>Example 2</p>
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.position }}</td>
+          <td>{{ emp.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class=" col-2 mt-2">
+    <p>Example 3</p>
+    <ul>
+      <li *ngFor="let company of companyList">
+        {{ company }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col-12 m-3">
+    <hr>
+  </div>
+</div>
+
+
+<div class="row text-center">
+  <div class="col-6">
+    <div *ngFor="let emp of employees">
+      {{ emp.name }} -- {{ emp.position }}
+    </div>
+  </div>
+  <div class="col-6">
+    <div *ngFor="let company of companyList">
+      <button class="btn btn-primary m-1">{{ company }}</button>
+    </div>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col-12 m-3">
+    <hr>
+  </div>
+</div>
+
+<div class=" col-4 mt-2">
+  <p>variables in for loop</p>
+  <ul>
+    @for (company of companyList; track $index; let i = $index, first = $first, last = $last, even = $even, odd = $odd,
+    count = $count) {
+    @if (first) {
+    <li style="color: red;">{{ company }}</li>
+    } @else if (last) {
+    <li style="color: blue;">{{ company }}</li>
+    } @else {
+    <li>{{ company }}</li>
+    }
+    }
+  </ul>
+</div>
+
+<div class=" col-2 mt-2">
+  <p>Example 3</p>
+  <ul>
+    @for (els of emptyList; track $index) {
+
+    }
+  </ul>
+</div>

@@ -1,0 +1,34 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "phone": "1234567890",
+      "email": "admin@example.com"
+    },
+    {
+      "id": 2,
+      "username": "Leo",
+      "phone": "1234567890",
+      "email": "Leo@example.com"
+    },
+    {
+      "id": 3,
+      "username": "Jhon",
+      "phone": "1234567890",
+      "email": "Jhon@example.com"
+    },
+    {
+      "id": 4,
+      "username": "Jane",
+      "phone": "1234567890",
+      "email": "Jane@example.com"
+    },
+    {
+      "username": "Jsonson",
+      "phone": "1321312321321",
+      "email": "yuxuan.li@festo.com",
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+\<div class="container col-6">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div class="form-group m-3">
+      <label>First Name</label>
+      <input type="text" class="form-control" placeholder="Enter first name" formControlName="firstName">
+      @if (reactiveForm.controls['firstName'].touched || reactiveForm.controls['firstName'].dirty) {
+      @if (reactiveForm.controls['firstName'].errors?.['required']) {
+      <div class="text-danger">First Name is required</div>
+      }
+      @if (reactiveForm.controls['firstName'].errors?.['minlength']) {
+      <div class="text-danger">First Name must be at least 5 characters</div>
+      }
+      }
+    </div>
+
+    <div class="form-group m-3">
+      <label>Last Name</label>
+      <input type="text" class="form-control" placeholder="Enter last name" formControlName="lastName">
+
+      @if (reactiveForm.controls['lastName'].touched || reactiveForm.controls['lastName'].dirty) {
+      @if (reactiveForm.controls['lastName'].errors?.['required']) {
+      <div class="text-danger">Last Name is required</div>
+      }
+      @if (reactiveForm.controls['lastName'].errors?.['maxlength']) {
+      <div class="text-danger">Last Name must be at most 5 characters</div>
+      }
+      @if (reactiveForm.controls['lastName'].errors?.['pattern']) {
+      <div class="text-danger">Last Name must contain only letters</div>
+      }
+      }
+    </div>
+
+    <div class="form-group m-3">
+      <label>Email</label>
+      <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+      @if (reactiveForm.controls['email'].touched || reactiveForm.controls['email'].dirty) {
+      @if (reactiveForm.controls['email'].errors?.['required']) {
+      <div class="text-danger">Email is required</div>
+      }
+      @if (reactiveForm.controls['email'].errors?.['email']) {
+      <div class="text-danger">Email is invalid</div>
+      }
+      }
+    </div>
+
+    <div class="form-group m-3">
+      <label>Password</label>
+      <input type="password" class="form-control" placeholder=" Enter password" formControlName="password">
+      @if (reactiveForm.controls['password'].touched || reactiveForm.controls['password'].dirty) {
+      @if (reactiveForm.controls['password'].errors?.['required']) {
+      <div class="text-danger">Password is required</div>
+      }
+      }
+    </div>
+
+    <div class="form-check m-3">
+      <input type="checkbox" class="form-check-input" formControlName="isChecked">
+      <label class="form-check-label">Check me out</label>
+    </div>
+
+    <div class="form-check m-3" formArrayName="skills">
+      <button type="button" class="btn btn-primary" (click)="addSkill()">Add a Skills</button>
+      @for (item of skills.controls; track $index) {
+      <div [formGroupName]="$index">
+        <h6>Skills {{$index + 1}}</h6>
+        <input type="text" formControlName="skill" class="form-control" placeholder=" Enter skill name">
+        <input type="text" formControlName="experience" class="form-control" placeholder=" Enter experience">
+        <button type="button" class="btn btn-danger" (click)="removeSkill($index)">Remove</button>
+        <hr />
+      </div>
+      }
+    </div>
+
+    <hr />
+
+    <h3>Address</h3>
+
+    <div formGroupName="address">
+      <div class="form-group m-3">
+        <label>City</label>
+        <input type="text" formControlName="city" class="form-control" placeholder=" Enter city">
+      </div>
+
+      <div class="form-group m-3">
+        <label>State</label>
+        <input type="text" formControlName="state" class="form-control" placeholder=" Enter state">
+      </div>
+
+      <div class="form-group m-3">
+        <label>Zip</label>
+        <input type="text" formControlName="zip" class="form-control" placeholder=" Enter zip">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary m-3" [disabled]="reactiveForm.invalid">Submit</button>
+
+    <button type="button" class="btn btn-success m-3" (click)="setValue()">SetValue</button>
+    <button type="button" class="btn btn-info m-3" (click)="patchValue()">PatchValue</button>
+    <button type="button" class="btn btn-danger m-3" (click)="reset()">Reset</button>
+    <button type="button" class="btn btn-danger m-3" (click)="setZipField()">Set Zip Field</button>
+  </form>
+
+</div>

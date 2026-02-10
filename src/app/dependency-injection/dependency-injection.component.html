@@ -1,0 +1,26 @@
+<div class="container col-6 mt-3">
+  <h2>User id: {{user.id}}</h2>
+  <h2>User Name: {{user.name}}</h2>
+  <h2>User email: {{user.email}}</h2>
+  <h2>User role: {{user.role}}</h2>
+
+  @if (this.userService.isAdmin()) {
+  <div class="text-success">You are admin</div>
+  } @else {
+  <div class="text-danger">You are not admin</div>
+  }
+
+  <hr />
+  <h2>User from API: </h2>
+
+  @for (item of userFromAPI; track $index) {
+  <h4>{{item.username}}</h4>
+  <ul>
+    <li>{{item.id}}</li>
+    <li>{{item.username}}</li>
+    <li>{{item.email}}</li>
+  </ul>
+  <hr>
+  }
+
+</div>

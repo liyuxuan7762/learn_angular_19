@@ -1,0 +1,17 @@
+<h1>Data Binding Component</h1>
+
+<h2>1. interpolation</h2>
+
+<div><span>My name is {{name}}</span></div>
+
+<h2>2. property binding</h2>
+
+<input [value]="inputContent" />
+
+<h2>3. event binding</h2>
+
+<input type="button" value="Click Me" (click)="onSave()" />
+
+<h4>4. two way data binding</h4>
+
+<input type="text" [(ngModel)]="name" />

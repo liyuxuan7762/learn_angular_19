@@ -1,0 +1,33 @@
+<div class="row text-center">
+  <div class="col-12 m-3"></div>
+  <b>Example of ngIf and if</b>
+</div>
+
+<div class="row text-center">
+  <div class="col-4 mt-2">
+    <p>Example 1</p>
+    <input type="checkbox" (click)="toggleTerms()"> Show the terms and conditions
+    @if (isShowTerms) {
+    <p>This is the term content</p>
+    }
+  </div>
+  <div class="col-4 mt-2">
+    <p>Example 2</p>
+    @if (isShowTitle) {
+    <p>Press the button to control the visibility of this title</p>
+    }
+    <button (click)="showTitle()" class="btn btn-success">Show</button>
+    <button (click)="hideTitle()" class="btn btn-danger">Hide</button>
+  </div>
+  <div class=" col-4 mt-2">
+    <p>Example 3</p>
+    <input type="text" [(ngModel)]="input1" /> <br />
+    <input type="text" [(ngModel)]="input2" /> <br />
+    @if (input1 === input2) {
+    <p>The two input values are equal</p>
+    }
+    @else if (input1 !== input2) {
+    <p>The two input values are not equal</p>
+    }
+  </div>
+</div>

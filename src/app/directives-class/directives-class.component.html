@@ -1,0 +1,47 @@
+<div class="row text-center">
+  <div class="col-12 m-3"></div>
+  <h3>Example of ngClass</h3>
+</div>
+
+<div class="row text-center">
+  <div class="col-4 mt-2">
+    <h4 [ngClass]="textColor">Example 1</h4>
+
+    <button (click)="setTextColor('text-success')" class="btn btn-success m-1">Set to Green</button>
+    <button (click)="setTextColor('text-primary')" class="btn btn-primary m-1">Set to Blue</button>
+  </div>
+
+  <div class="col-4 mt-2">
+    <h4 [ngClass]="isSetTextColorBlue ? 'text-success': ''">Example 2</h4>
+    <input type="checkbox" [(ngModel)]="isSetTextColorBlue"> Change Color
+  </div>
+  <div class="col-4 mt-2">
+    <h4 [ngClass]="className">Example 3</h4>
+    <input type="text" [(ngModel)]="className">
+  </div>
+
+</div>
+
+
+<div class="row text-center">
+  <div class="col-12 m-3"></div>
+  <h3>Example of ngStyle</h3>
+</div>
+
+<div class="row text-center">
+  <div class="col-4 mt-2">
+    <h4 [ngStyle]="{'color': fontColor}">Example 1</h4>
+
+    <button (click)="setFontColor('green')" class="btn btn-success m-1">Set to Green</button>
+    <button (click)="setFontColor('blue')" class="btn btn-primary m-1">Set to Blue</button>
+  </div>
+
+  <div class="col-4 mt-2">
+    <h4 [ngStyle]="{'color': isSetTextColorBlue ? 'blue' : 'green'}">Example 2</h4>
+    <input type="checkbox" [(ngModel)]="isSetTextColorBlue"> Change Color
+  </div>
+
+  <div class="col-4 mt-2">
+    <h4 [ngStyle]="customClass">Example 3</h4>
+  </div>
+</div>
