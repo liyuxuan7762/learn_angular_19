@@ -2,7 +2,7 @@
   "Users": [
     {
       "id": 1,
-      "username": "admin",
+      "username": "admin123",
       "phone": "1234567890",
       "email": "admin@example.com"
     },
@@ -11,12 +11,6 @@
       "username": "Leo",
       "phone": "1234567890",
       "email": "Leo@example.com"
-    },
-    {
-      "id": 3,
-      "username": "Jhon",
-      "phone": "1234567890",
-      "email": "Jhon@example.com"
     },
     {
       "id": 4,

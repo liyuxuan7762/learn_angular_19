@@ -13,10 +13,24 @@ export class CrudService {
   constructor() {}
 
   public getUsers(): Observable<Iuser[]> {
-    return this.httpClient.get<Iuser[]>(this.apiUrl);
+    return this.httpClient.get<Iuser[]>(this.apiUrl, {
+      withCredentials: true,
+    });
   }
 
   public postUser(user: Iuser) {
     return this.httpClient.post(this.apiUrl, user);
+  }
+
+  public getUserById(id: number): Observable<Iuser> {
+    return this.httpClient.get<Iuser>(`${this.apiUrl}/${id}`);
+  }
+
+  public updateUser(id: number, user: Iuser) {
+    return this.httpClient.put(`${this.apiUrl}/${id}`, user);
+  }
+
+  public deleteUser(id: number) {
+    return this.httpClient.delete(`${this.apiUrl}/${id}`);
   }
 }

@@ -10,6 +10,12 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { DependencyInjectionComponent } from './dependency-injection/dependency-injection.component';
 import { CrudComponent } from './crud/crud.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { ViewUserComponent } from './view-user/view-user.component';
+import { ResourceApiComponent } from './resource-api/resource-api.component';
+import { ParentComponent } from './parent/parent.component';
+import { StorageComponent } from './storage/storage.component';
 
 export const routes: Routes = [
   { path: '', component: UserComponent },
@@ -35,6 +41,18 @@ export const routes: Routes = [
   { path: 'crud', component: CrudComponent },
 
   { path: 'addUser', component: AddUserComponent },
+
+  { path: 'updateUser/:id', component: UpdateUserComponent },
+
+  { path: 'deleteUser/:id', component: DeleteUserComponent },
+
+  { path: 'viewUser/:id', component: ViewUserComponent },
+
+  { path: 'resource', component: ResourceApiComponent },
+
+  { path: 'parentChildComm', component: ParentComponent },
+
+  { path: 'storage', component: StorageComponent },
 
   { path: '**', component: NotFoundComponent },
 ];

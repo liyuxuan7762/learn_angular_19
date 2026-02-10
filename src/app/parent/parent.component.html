@@ -1,0 +1,58 @@
+<div class="container text-center">
+  <div class="row m-5">
+    <div class="col-12">
+      <div class="text-info">
+        <h2>Example of Parent <-> Child Communication</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="text-danger">
+        <h2>Parent Component</h2>
+      </div>
+      <div class="text-success">
+        <p>{{ msg }}</p>
+      </div>
+    </div>
+    <div class="vr p-0"></div>
+    <div class="col-5">
+      <app-child [parentMessage]="parentMessage" (outputMsg)="receiveMessage($event)"></app-child>
+    </div>
+  </div>
+
+  <div class="row m-5">
+    <div class="col-12">
+      <div class="text-info">
+        <h2>Example of Sibling Communication</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="text-danger">
+        <h2>Sibling1 Component</h2>
+      </div>
+      <app-sibling1 [sibling1Data]="sibling2Data" (sibling1Event)="receiveSibling1($event)"></app-sibling1>
+    </div>
+    <div class="vr p-0"></div>
+    <div class="col-5">
+      <div class="text-danger">
+        <h2>Sibling2 Component</h2>
+      </div>
+      <app-sibling2 [sibling2Data]="sibling1Data" (sibling2Event)="receiveSibling2($event)"></app-sibling2>
+    </div>
+  </div>
+
+  <div class="row m-5">
+    <div class="col-12">
+      <div class="text-info">
+        <h2>Example of VhiwChild</h2>
+      </div>
+    </div>
+  </div>
+
+  <app-reuseable #reuseable></app-reuseable>
+</div>

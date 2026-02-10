@@ -12,10 +12,11 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReuseableComponent } from '../reuseable/reuseable.component';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [ReuseableComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
@@ -68,4 +69,6 @@ export class UserComponent
     // this.router.navigateByUrl('/structural-directives');
     this.router.navigate(['/structural-directives']);
   }
+
+  protected message: string = 'User Login Form';
 }

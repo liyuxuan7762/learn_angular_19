@@ -1,0 +1,21 @@
+<div class="container col-6 bg-info-subtle">
+  <h2 class="text-center m-3">View User</h2>
+
+  <div class="container col-6">
+    <div class="col-3">
+      <p><b>ID:</b> {{ user.id }}</p>
+    </div>
+    <div class="col-3">
+      <p><b>Name:</b> {{ user.username }}</p>
+    </div>
+
+    <div class="col-3">
+      <p><b>Email:</b> {{ user.email }}</p>
+    </div>
+    <div class="col-3">
+      <p><b>Phone:</b> {{ user.phone }}</p>
+    </div>
+
+    <button routerLink="/crud" class="btn btn-primary">Back to List</button>
+  </div>
+</div>
