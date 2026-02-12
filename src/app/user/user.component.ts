@@ -67,6 +67,9 @@ export class UserComponent
     // checking user credentials logic goes here
 
     // this.router.navigateByUrl('/structural-directives');
+
+    sessionStorage.setItem('user', 'CN0YXNL');
+
     this.router.navigate(['/structural-directives']);
   }
 

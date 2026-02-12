@@ -16,6 +16,8 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { ResourceApiComponent } from './resource-api/resource-api.component';
 import { ParentComponent } from './parent/parent.component';
 import { StorageComponent } from './storage/storage.component';
+import { authGuardGuard } from './guard/auth-guard.guard';
+import { formGuardGuard } from './guard/form-guard.guard';
 
 export const routes: Routes = [
   { path: '', component: UserComponent },
@@ -26,7 +28,11 @@ export const routes: Routes = [
 
   { path: 'data-binding', component: DataBindingComponent },
 
-  { path: 'structural-directives', component: DirectivesIfComponent },
+  {
+    path: 'structural-directives',
+    component: DirectivesIfComponent,
+    canActivate: [authGuardGuard],
+  },
 
   { path: 'attribute-directives', component: DirectivesClassComponent },
 
@@ -34,7 +40,11 @@ export const routes: Routes = [
 
   { path: 'tdf', component: TemplateDrivenFormComponent },
 
-  { path: 'rf', component: ReactiveFormComponent },
+  {
+    path: 'rf',
+    component: ReactiveFormComponent,
+    canDeactivate: [formGuardGuard],
+  },
 
   { path: 'di', component: DependencyInjectionComponent },
 

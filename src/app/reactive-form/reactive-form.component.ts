@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -96,5 +96,15 @@ export class ReactiveFormComponent {
 
   protected setZipField(): void {
     this.reactiveForm.get('address.zip')?.setValue('90001');
+  }
+
+  canDeactivate(): boolean {
+    return confirm('Are you sure you want to leave?');
+  }
+
+  // 浏览器刷新 / 关闭 / 地址栏跳转：用 beforeunload
+  @HostListener('window:beforeunload', ['$event'])
+  onBeforeUnload(event: BeforeUnloadEvent) {
+    event.preventDefault();
   }
 }
