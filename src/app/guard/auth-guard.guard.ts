@@ -5,8 +5,10 @@ export const authGuardGuard: CanActivateFn = (route, state) => {
   // inject router
   const router = inject(Router);
 
+  const isBrowser = typeof window !== 'undefined';
+
   // get user from session storage
-  const user = sessionStorage.getItem('user');
+  const user = isBrowser ? sessionStorage.getItem('user') : null;
 
   if (user) {
     console.log('User is logged in');

@@ -69,6 +69,7 @@ export class UserComponent
     // this.router.navigateByUrl('/structural-directives');
 
     sessionStorage.setItem('user', 'CN0YXNL');
+    localStorage.setItem('user', 'CN0YXNL');
 
     this.router.navigate(['/structural-directives']);
   }

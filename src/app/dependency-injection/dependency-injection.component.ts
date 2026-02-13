@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ShareUserServiceService } from '../services/share-user-service.service';
+import { ShareUserServiceService } from '../service/share-user-service.service';
 
 @Component({
   selector: 'app-dependency-injection',
