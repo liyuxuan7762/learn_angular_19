@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM node:22
 
 WORKDIR /app
 
@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 4200
 
-CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--disable-host-check"] 

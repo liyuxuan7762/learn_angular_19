@@ -1,0 +1,19 @@
+version: '3.9'   # 使用 Docker Compose v3.9 语法
+
+services:        # 定义多个服务（容器）
+
+  angular-app:   # Angular 应用的服务名称（容器名）
+    build: .     # 使用当前目录的 Dockerfile 构建 Angular 镜像
+    ports:
+      - "4200:4200"   # 映射端口：宿主机 4200 → 容器 4200
+    depends_on:
+      - json-server   # 依赖 json-server，确保它先启动
+
+  json-server:        # json-server 服务（容器）
+    image: clue/json-server   # 使用社区版 json-server 镜像（无需自己写 Dockerfile）
+    ports:
+      - "3000:80"     # 容器内部监听 80，映射到宿主机 3000
+    volumes:
+      - ./db.json:/data/db.json   # 挂载本地 db.json 到容器内部 /data/db.json
+                                  # json-server 会自动读取 /data/db.json
+                                  # 左边的这个宿主机路径实际上是相对于compose.yaml文件的路径 
